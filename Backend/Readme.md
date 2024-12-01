@@ -57,8 +57,8 @@ Body:
     "socketId": null
   }
 }
-Error Responses
-Validation Error
+## Error Responses
+## Validation Error
 
 Status Code: 400 Bad Request
 Body:
