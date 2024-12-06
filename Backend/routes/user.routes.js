@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const {body} = require("express-validator");
 const userController = require('../controllers/user.controller');
+const authMiddleware =require("../middlewares/auth.middleware")
 // we need a package to validate the data entered by user express validator is the package we are going to use
 
 router.post("/register",[
@@ -21,6 +22,12 @@ router.post("/login",[
 userController.loginUser
 )
 
+//Profile route
 
+router.get("/profile",authMiddleware.authUser,userController.getUserProfile)
+
+//Logout route
+
+router.get("/logout",authMiddleware.authUser,userController.logoutUser);
 
 module.exports =router;
